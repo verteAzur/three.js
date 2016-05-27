@@ -1367,8 +1367,10 @@ THREE.WebGLRenderer = function ( parameters ) {
 
 		_sphere.copy( geometry.boundingSphere ).
 			applyMatrix4( object.matrixWorld );
-
-		return isSphereViewable( _sphere );
+		
+		object.viewable=isSphereViewable( _sphere );
+		
+		return object.viewable;
 
 	}
 
