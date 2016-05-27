@@ -79,7 +79,7 @@ THREE.Object3D = function () {
 
 	this.frustumCulled = true;
 	this.renderOrder = 0;
-
+	this.viewable=this.visible; /*object is viewable in the camera frustum*/
 	this.userData = {};
 
 };
