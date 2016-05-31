@@ -3,7 +3,7 @@
  * @author mrdoob / http://mrdoob.com/
  * @author alteredq / http://alteredqualia.com/
  * @author szimek / https://github.com/szimek/
- * @author tschw
+ * @author tscchw
  */
 
 THREE.WebGLRenderer = function ( parameters ) {
@@ -1212,7 +1212,8 @@ THREE.WebGLRenderer = function ( parameters ) {
 		_localClippingEnabled = this.localClippingEnabled;
 		_clippingEnabled = _clipping.init(
 				this.clippingPlanes, _localClippingEnabled, camera );
-
+		
+		camera.viewable=[];
 		projectObject( scene, camera );
 
 
@@ -1481,7 +1482,7 @@ THREE.WebGLRenderer = function ( parameters ) {
 								if ( groupMaterial.visible === true ) {
 
 									pushRenderItem( object, geometry, groupMaterial, _vector3.z, group );
-
+									camera.viewable.push(object.id);
 								}
 
 							}
@@ -1489,7 +1490,7 @@ THREE.WebGLRenderer = function ( parameters ) {
 						} else {
 
 							pushRenderItem( object, geometry, material, _vector3.z, null );
-
+							camera.viewable.push(object.id);
 						}
 
 					}
