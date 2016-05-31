@@ -78,9 +78,11 @@ THREE.Object3D = function () {
 	this.receiveShadow = false;
 
 	this.frustumCulled = true;
+	this.viewable = [];
 	this.renderOrder = 0;
 
 	this.userData = {};
+	
 
 };
 
@@ -707,6 +709,13 @@ Object.assign( THREE.Object3D.prototype, THREE.EventDispatcher.prototype, {
 
 		return this;
 
+	},
+	
+	isviewable: function(object){
+		for(var i=0;i<this.viewable.length;i++){
+			if(this.viewable[i]===object.id){return true;}
+		}
+		return false;
 	}
 
 } );
